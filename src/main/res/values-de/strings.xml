@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quit_ad_dialog_title_text">Willst du wirklich Verlassen?</string>
+    <string name="no">Nein</string>
+    <string name="yes">Ja</string>
+</resources>
