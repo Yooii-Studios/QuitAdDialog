@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quit_ad_dialog_title_text">Bạn chắc chắn muốn thoát ra?</string>
+    <string name="yes">Vâng</string>
+    <string name="no">Không</string>
+</resources>

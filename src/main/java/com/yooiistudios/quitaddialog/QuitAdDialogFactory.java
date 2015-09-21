@@ -72,7 +72,7 @@ public class QuitAdDialogFactory {
         final Activity activity = options.activity;
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle(R.string.quit_ad_dialog_title_text);
-        builder.setPositiveButton(activity.getString(R.string.ok),
+        builder.setPositiveButton(activity.getString(R.string.yes),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -80,7 +80,7 @@ public class QuitAdDialogFactory {
                         activity.finish();
                     }
         });
-        builder.setNegativeButton(activity.getString(R.string.cancel), null);
+        builder.setNegativeButton(activity.getString(R.string.no), null);
 
         final AlertDialog dialog = builder.create();
 
@@ -118,7 +118,7 @@ public class QuitAdDialogFactory {
         final Activity activity = options.activity;
         android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(activity);
         builder.setTitle(R.string.quit_ad_dialog_title_text);
-        builder.setPositiveButton(activity.getString(R.string.ok),
+        builder.setPositiveButton(activity.getString(R.string.yes),
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -126,7 +126,7 @@ public class QuitAdDialogFactory {
                         activity.finish();
                     }
         });
-        builder.setNegativeButton(activity.getString(R.string.cancel), null);
+        builder.setNegativeButton(activity.getString(R.string.no), null);
 
         final android.app.AlertDialog dialog = builder.create();
 
