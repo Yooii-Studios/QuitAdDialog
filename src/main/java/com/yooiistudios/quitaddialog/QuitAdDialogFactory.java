@@ -31,6 +31,7 @@ public class QuitAdDialogFactory {
         @Nullable public AdView landscapeAdView;
         public boolean isRotatable = false;
         public boolean isAppCompat = true;
+        public boolean isAdIncluded = true;
 
         public Options(@NonNull Activity activity, @NonNull AdView portraitAdView) {
             this.activity = activity;
@@ -84,15 +85,17 @@ public class QuitAdDialogFactory {
 
         final AlertDialog dialog = builder.create();
 
-        if (!options.isRotatable) {
-            dialog.setView(options.portraitAdView);
-            applyPaddingTop(dialog, options, activity); // only for AppCompat Dialog
-        } else {
-            View tempFrameView = createTempFrameView(activity);
-            dialog.setView(tempFrameView);
+        if (options.isAdIncluded) {
+            if (!options.isRotatable) {
+                dialog.setView(options.portraitAdView);
+                applyPaddingTop(dialog, options, activity); // only for AppCompat Dialog
+            } else {
+                View tempFrameView = createTempFrameView(activity);
+                dialog.setView(tempFrameView);
 
-            View rotatableAdView = createRotatableAdView(tempFrameView, options, dialog);
-            dialog.setView(rotatableAdView);
+                View rotatableAdView = createRotatableAdView(tempFrameView, options, dialog);
+                dialog.setView(rotatableAdView);
+            }
         }
         dialog.setCanceledOnTouchOutside(false);
         return dialog;
@@ -130,15 +133,17 @@ public class QuitAdDialogFactory {
 
         final android.app.AlertDialog dialog = builder.create();
 
-        if (!options.isRotatable) {
-            dialog.setView(options.portraitAdView);
-        } else {
-            // 레이아웃 구조 동적 변경을 위해 setView 총 두 번 사용 필요
-            View contentView = createTempFrameView(activity);
-            dialog.setView(contentView);
+        if (options.isAdIncluded) {
+            if (!options.isRotatable) {
+                dialog.setView(options.portraitAdView);
+            } else {
+                // 레이아웃 구조 동적 변경을 위해 setView 총 두 번 사용 필요
+                View contentView = createTempFrameView(activity);
+                dialog.setView(contentView);
 
-            View rotatableAdView = createRotatableAdView(contentView, options, dialog);
-            dialog.setView(rotatableAdView);
+                View rotatableAdView = createRotatableAdView(contentView, options, dialog);
+                dialog.setView(rotatableAdView);
+            }
         }
         dialog.setCanceledOnTouchOutside(false);
         return dialog;
